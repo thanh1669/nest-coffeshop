@@ -1,0 +1,58 @@
+{
+    "$schema": "https://json.schemastore.org/nest-cli",
+    "collection": "@nestjs/schematics",
+    "sourceRoot": "apps/order-service/src",
+    "projects": {
+        "config": {
+            "type": "library",
+            "root": "libs/config",
+            "entryFile": "index",
+            "sourceRoot": "libs/config/src",
+            "compilerOptions": {
+                "tsConfigPath": "libs/config/tsconfig.lib.json"
+            }
+        },
+        "order-service": {
+            "type": "application",
+            "root": "apps/order-service",
+            "entryFile": "main",
+            "sourceRoot": "apps/order-service/src",
+            "compilerOptions": {
+                "tsConfigPath": "apps/order-service/tsconfig.app.json"
+            }
+        },
+        "product-service": {
+            "type": "application",
+            "root": "apps/product-service",
+            "entryFile": "main",
+            "sourceRoot": "apps/product-service/src",
+            "compilerOptions": {
+                "tsConfigPath": "apps/product-service/tsconfig.app.json"
+            }
+        },
+        "common/services": {
+            "type": "library",
+            "root": "libs/common/services",
+            "entryFile": "index",
+            "sourceRoot": "libs/common/services/src",
+            "compilerOptions": {
+                "tsConfigPath": "libs/common/services/tsconfig.lib.json"
+            }
+        },
+        "common/models": {
+            "type": "library",
+            "root": "libs/common/models",
+            "entryFile": "index",
+            "sourceRoot": "libs/common/models/src",
+            "compilerOptions": {
+                "tsConfigPath": "libs/common/models/tsconfig.lib.json"
+            }
+        }
+    },
+    "compilerOptions": {
+        "webpack": true,
+        "tsConfigPath": "apps/order-service/tsconfig.app.json"
+    },
+    "monorepo": true,
+    "root": "apps/order-service"
+}
