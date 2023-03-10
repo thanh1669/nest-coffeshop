@@ -1,7 +1,13 @@
-import { DynamicModule } from '@nestjs/common';
+import { RabbitEventService } from '@app/common/services';
+import { DynamicModule, Global, Module } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 
+@Global()
+@Module({
+    providers: [RabbitEventService],
+    exports: [RabbitEventService]
+})
 export class RabbitConfigModule {
     static register(name: 'ORDER_SERVICE' | 'PRODUCT_SERVICE'): DynamicModule {
         return {

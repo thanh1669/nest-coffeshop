@@ -1,7 +1,10 @@
+import { RabbitConfigModule } from '@app/config';
 import { Module } from '@nestjs/common';
 
 @Module({
-    imports: [],
+    imports: [
+        RabbitConfigModule
+    ],
     controllers: [],
     providers: [],
 })
