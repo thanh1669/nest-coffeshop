@@ -45,6 +45,24 @@
                 "tsConfigPath": "apps/product-service/tsconfig.app.json"
             }
         },
+        "product-worker": {
+            "type": "application",
+            "root": "apps/product-service",
+            "entryFile": "main-worker",
+            "sourceRoot": "apps/product-service/src",
+            "compilerOptions": {
+                "tsConfigPath": "apps/product-service/tsconfig.app.json"
+            }
+        },
+        "product-event-dispatcher": {
+            "type": "application",
+            "root": "apps/product-service",
+            "entryFile": "main-event-dispatcher",
+            "sourceRoot": "apps/product-service/src",
+            "compilerOptions": {
+                "tsConfigPath": "apps/product-service/tsconfig.app.json"
+            }
+        },
         "config": {
             "type": "library",
             "root": "libs/config",
