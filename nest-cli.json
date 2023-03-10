@@ -1,21 +1,36 @@
 {
     "$schema": "https://json.schemastore.org/nest-cli",
     "collection": "@nestjs/schematics",
+    "monorepo": true,
     "sourceRoot": "apps/order-service/src",
+    "root": "apps/order-service",
+    "compilerOptions": {
+        "webpack": true,
+        "tsConfigPath": "apps/order-service/tsconfig.app.json"
+    },
     "projects": {
-        "config": {
-            "type": "library",
-            "root": "libs/config",
-            "entryFile": "index",
-            "sourceRoot": "libs/config/src",
-            "compilerOptions": {
-                "tsConfigPath": "libs/config/tsconfig.lib.json"
-            }
-        },
         "order-service": {
             "type": "application",
             "root": "apps/order-service",
             "entryFile": "main",
+            "sourceRoot": "apps/order-service/src",
+            "compilerOptions": {
+                "tsConfigPath": "apps/order-service/tsconfig.app.json"
+            }
+        },
+        "order-worker": {
+            "type": "application",
+            "root": "apps/order-service",
+            "entryFile": "main-worker",
+            "sourceRoot": "apps/order-service/src",
+            "compilerOptions": {
+                "tsConfigPath": "apps/order-service/tsconfig.app.json"
+            }
+        },
+        "order-event-dispatcher": {
+            "type": "application",
+            "root": "apps/order-service",
+            "entryFile": "main-event-dispatcher",
             "sourceRoot": "apps/order-service/src",
             "compilerOptions": {
                 "tsConfigPath": "apps/order-service/tsconfig.app.json"
@@ -28,6 +43,15 @@
             "sourceRoot": "apps/product-service/src",
             "compilerOptions": {
                 "tsConfigPath": "apps/product-service/tsconfig.app.json"
+            }
+        },
+        "config": {
+            "type": "library",
+            "root": "libs/config",
+            "entryFile": "index",
+            "sourceRoot": "libs/config/src",
+            "compilerOptions": {
+                "tsConfigPath": "libs/config/tsconfig.lib.json"
             }
         },
         "common/services": {
@@ -48,11 +72,5 @@
                 "tsConfigPath": "libs/common/models/tsconfig.lib.json"
             }
         }
-    },
-    "compilerOptions": {
-        "webpack": true,
-        "tsConfigPath": "apps/order-service/tsconfig.app.json"
-    },
-    "monorepo": true,
-    "root": "apps/order-service"
+    }
 }
