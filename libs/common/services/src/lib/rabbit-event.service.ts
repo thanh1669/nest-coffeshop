@@ -8,7 +8,7 @@ export class RabbitEventService {
         private configService: ConfigService
     ) { }
 
-    init(queue: 'PRODUCT_SERVICE' | 'ORDER_SERVICE', noAck = false): RmqOptions {
+    init(queue: string, noAck = false): RmqOptions {
         return {
             transport: Transport.RMQ,
             options: {

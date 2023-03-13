@@ -1,13 +1,16 @@
 import { AppConfig } from '@app/common/models';
-import { EnviromentConfigModule, RabbitConfigModule } from '@app/config';
+import { EnviromentConfigModule, PostgresqlModule, RabbitConfigModule } from '@app/config';
 import { Module } from '@nestjs/common';
-import { OrderRouteModule } from './routes/product.route';
+import { PostgresqlModelModule } from '../common/models';
+import { ProductRouteModule } from './routes/product.route';
 
 @Module({
     imports: [
         EnviromentConfigModule.register('./apps/product-service/.env'),
         RabbitConfigModule.register(AppConfig.PRODUCT_SERVICE),
-        OrderRouteModule
+        PostgresqlModule.register(),
+        PostgresqlModelModule,
+        ProductRouteModule
     ],
     controllers: [],
     providers: [],

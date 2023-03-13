@@ -9,7 +9,7 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
     exports: [RabbitEventService]
 })
 export class RabbitConfigModule {
-    static register(name: 'ORDER_SERVICE' | 'PRODUCT_SERVICE'): DynamicModule {
+    static register(name: string): DynamicModule {
         return {
             module: RabbitConfigModule,
             imports: [
