@@ -39,6 +39,12 @@ export class Item extends Model {
     price: number;
 
     @Column({
+        type: DataType.STRING(255),
+        defaultValue: ''
+    })
+    thumbnail_url: string;
+
+    @Column({
         type: DataType.INTEGER,
         allowNull: false
     })
