@@ -30,7 +30,19 @@ export class OrderItem extends Model {
         type: DataType.INTEGER,
         allowNull: false,
     })
-    item_id: string;
+    item_id: number;
+
+    @Column({
+        type: DataType.STRING(50),
+        allowNull: false,
+    })
+    item_sku: string;
+
+    @Column({
+        type: DataType.STRING(255),
+        allowNull: false,
+    })
+    item_name: string;
 
     @Column({
         type: DataType.INTEGER,

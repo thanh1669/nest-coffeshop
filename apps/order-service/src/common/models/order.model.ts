@@ -3,10 +3,12 @@ import {
     Column,
     CreatedAt,
     DataType,
+    HasMany,
     Model,
     Table,
     UpdatedAt,
 } from 'sequelize-typescript';
+import { OrderItem } from './order-item.model';
 
 @Table({
     tableName: 'tbl_orders',
@@ -99,6 +101,20 @@ export class Order extends Model {
         defaultValue: null,
     })
     updated_by: object;
+
+
+    /**
+     * Relation
+     * - ForeignKey
+     * - BelongsTo
+     * - HasMany
+     * - HasOne
+     */
+    @HasMany(() => OrderItem, {
+        foreignKey: 'order_id',
+        constraints: false
+    })
+    order_items: OrderItem[];
 
     /**
      * Transform model to expose object

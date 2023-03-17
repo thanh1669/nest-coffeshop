@@ -29,6 +29,7 @@
     "@nestjs/sequelize": "^9.0.0",
     "amqp-connection-manager": "^4.1.11",
     "amqplib": "^0.10.3",
+    "joi": "^17.8.4",
     "pg": "^8.10.0",
     "pg-hstore": "^2.3.4",
     "reflect-metadata": "^0.1.13",

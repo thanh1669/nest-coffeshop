@@ -11,10 +11,11 @@ import { Order } from './order.model';
             [
                 Order,
                 OrderItem
-            ],
-            PostgresqlModule.name
+            ]
         ),
     ],
-    exports: [SequelizeModule],
+    exports: [
+        SequelizeModule,
+    ],
 })
 export class PostgresqlModelModule { }
